@@ -1,17 +1,19 @@
 import { useState } from "react";
+// import food icon
 import ChickenNuggets from "../../assets/chicken.svg";
 import Hamburger from "../../assets/hamburger.svg";
 import PizzaSlices from "../../assets/pizza.svg";
 import SubmarineSandwich from "../../assets/submarine.svg";
+// import components
 import CreateOrder from "./createOrder/CreateOrder";
 import OrderReports from "./orderReports/OrderReports";
 import OrderSummary from "./orderSummary/OrderSummary";
 
 const items = [
-  { id: 1, image: Hamburger, name: "Hamburger", price: 300 },
+  { id: 1, image: Hamburger, name: "Hamburger", price: 220 },
   { id: 2, image: ChickenNuggets, name: "Chicken Nuggets", price: 350 },
-  { id: 3, image: SubmarineSandwich, name: "Submarine Sandwich", price: 150 },
-  { id: 4, image: PizzaSlices, name: "Pizza slices", price: 550 },
+  { id: 3, image: SubmarineSandwich, name: "Submarine Sandwich", price: 180 },
+  { id: 4, image: PizzaSlices, name: "Pizza slices", price: 499 },
 ];
 
 function MainContent() {

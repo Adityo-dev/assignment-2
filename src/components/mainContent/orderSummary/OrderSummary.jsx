@@ -6,6 +6,24 @@ function OrderSummary({ orderSummary = [] }) {
     (order) => order?.status === "DELIVERED"
   );
 
+  const colorMap = {
+    yellow: {
+      text: "text-yellow-500",
+      bg: "bg-yellow-800",
+      textLight: "text-yellow-200",
+    },
+    red: {
+      text: "text-red-500",
+      bg: "bg-red-800",
+      textLight: "text-red-200",
+    },
+    green: {
+      text: "text-green-500",
+      bg: "bg-green-800",
+      textLight: "text-green-200",
+    },
+  };
+
   const summaryData = [
     {
       id: 1,
@@ -31,21 +49,24 @@ function OrderSummary({ orderSummary = [] }) {
     <div>
       <h2 className="text-xl font-bold mb-4">Order Summary</h2>
       <div className="grid grid-cols-3 gap-4 mb-6">
-        {summaryData.map((item) => (
-          <div
-            key={item?.id}
-            className="bg-[#59565666] rounded-lg p-4 relative overflow-hidden"
-          >
-            <div className={`text-5xl font-bold text-${item?.color}-500 mb-2`}>
-              {item.count}
-            </div>
+        {summaryData.map((item) => {
+          const colors = colorMap[item?.color];
+          return (
             <div
-              className={`bg-${item?.color}-800 bg-opacity-50 text-${item?.color}-200 text-xs font-medium px-3 py-1 rounded-full inline-block`}
+              key={item?.id}
+              className="bg-[#59565666] rounded-lg p-4 relative overflow-hidden"
             >
-              {item.label}
+              <div className={`text-5xl font-bold ${colors.text} mb-2`}>
+                {item.count}
+              </div>
+              <div
+                className={`${colors.bg} bg-opacity-50 ${colors.textLight} text-xs font-medium px-3 py-1 rounded-full inline-block`}
+              >
+                {item.label}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

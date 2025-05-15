@@ -18,7 +18,7 @@ function ChooseItems({ items, selectedItems, setSelectedItems }) {
   return (
     <>
       <label className="block text-sm font-medium mb-2">Choose Items</label>
-      <div className="items-container">
+      <div className="max-h-[250px] overflow-y-auto">
         {items.map((item) => {
           const isSelected = selectedItems.some((i) => i.id === item.id);
           return (
